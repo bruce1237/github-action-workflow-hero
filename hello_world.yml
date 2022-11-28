@@ -1,0 +1,33 @@
+name: Hello world workflow
+
+on: # set up trigger for this workflow
+  push: # whenever an push action executed on 
+   branches: # which branch
+    - main # this main branch, the workflow will execute
+  
+  pull_request:
+    branches: 
+      - main
+
+  workflow_dispatch: # this will show a button in somewhere
+
+jobs:
+  hello: # job1 name 'hello'
+    runs-on: ubuntu-latest #define which OS this jobs is running on
+    steps: #define steps for the job
+      - uses: actions/checkout@v2 #step1: utilizing an action that has been created by github, format: owner/repoName, so this will run the action.yml in the actions/checkout repo, @v2 is the version of the repo, can also using tag or commit hash or branch
+      - name: hello world #step2: name of the step 2 is hello world
+        run: echo "HHello worlDD"
+        shell: bash
+
+  goodbye: #job2 name goodbye
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world # name of the step is goodbye world
+        run: echo "GGodbye worlDD"  # command is running for this job
+        shell: bash # bash going to use to run the command
+      
+      
+      
+    
+  
