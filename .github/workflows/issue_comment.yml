@@ -1,0 +1,16 @@
+name: create a comment on new issues
+
+on:
+  issues:
+    types: [opened] # invoke this workflow when ever an issue has been opened/created
+
+jobs:
+  comment-with-action:
+    runs-on: ubuntu-latest
+    # to create a comment with a issue requires: issueID
+    steps:
+      - name: "dump github context"
+        run: echo '${{ toJSON(github.event) }}' | jq
+        shell: bash
+  
+
