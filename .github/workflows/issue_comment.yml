@@ -1,40 +1,53 @@
-name: Create a comment on new issues
+name: create a comment on new issues
 
 on:
   issues:
-    types: [opened]
+    types: [opened] # invoke this workflow when ever an issue has been opened/created
 
 jobs:
   comment-with-action:
     runs-on: ubuntu-latest
+    # to create a comment with a issue requires: issueID
     steps:
       - name: "dump github context"
         run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
+        
+        
+        # using comment actions to add comment
+        # add a comment to an issue or pull request
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
             This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
+            - With Git hub **MarkDown** :sparkles:
             - Created by [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
+            
+            [1]: https:/google.com
           reactions: '+1'
-          
-  comment-with-api:
+  
+  # using github api to create a comment
+  comment-with-github-api:
     runs-on: ubuntu-latest
     steps:
-      - name: Create comment with API
+      - name: create comment with github API
         run: |
           gh api -X POST \
-            https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-            -f body='
-            Comment but from the API call not action
-            '
+          http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+          -f body ='
+          comment but from the API call not action1,
+          comment but from the API call not action2
+          '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.organization.login }}
           REPOSITORY: ${{ github.event.repository.name }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_NUMBER: ${{ github.event.number }}
+    
+          
+
+
+
+
