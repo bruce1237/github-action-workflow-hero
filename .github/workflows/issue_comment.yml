@@ -32,7 +32,7 @@ jobs:
   comment-with-github-api:
     runs-on: ubuntu-latest
     steps:
-      - name: create comment with github APIP
+      - name: create comment with github API
         run: |
           gh api -X POST \
           http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
@@ -42,7 +42,7 @@ jobs:
           '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ORGANIZATION: ${{ github.event.organisation.login }}
+          ORGANIZATION: ${{ github.event.organization.login }}
           REPOSITORY: ${{ github.event.repository.name }}
           ISSUE_NUMBER: ${{ github.event.number }}
     
