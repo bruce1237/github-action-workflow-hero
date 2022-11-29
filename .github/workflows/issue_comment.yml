@@ -27,7 +27,25 @@ jobs:
             
             [1]: https:/google.com
           reactions: '+1'
-
+  
+  # using github api to create a comment
+  comment-with-github-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create comment with github APIP
+        run: |
+          gh api -X POST \
+          http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+          -f body ='
+          comment but from the API call not action1,
+          comment but from the API call not action2
+          '
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORGANIZATION: ${{ github.event.organisation.login }}
+          REPOSITORY: ${{ github.event.repository.name }}
+          ISSUE_NUMBER: ${{ github.event.number }}
+    
           
 
 
