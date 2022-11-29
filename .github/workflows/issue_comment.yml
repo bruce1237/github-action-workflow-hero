@@ -28,14 +28,14 @@ jobs:
             [1]: https:/google.com
           reactions: '+1'
   
-  # using github api to create a comment
+  # using github api to create a comment, this is for the repo owned by organization
   comment-with-github-api:
     runs-on: ubuntu-latest
     steps:
       - name: create comment with github API
         run: |
           gh api -X POST \
-            https://api.github.com/repo/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            https://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
             -f body ='
             comment but from the API call not action1
             '
