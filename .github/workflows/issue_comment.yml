@@ -37,14 +37,15 @@ jobs:
           gh api -X POST \
             https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
             -f body='
-          comment but from the API call not action1,
-          comment but from the API call not action2
-          '
+            Comment but from the API call not action1,
+            Comment but from the API call not action2
+
+            '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.organization.login }}
           REPOSITORY: ${{ github.event.repository.name }}
-          ISSUE_NUMBER: ${{ github.event.number }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
     
           
 
