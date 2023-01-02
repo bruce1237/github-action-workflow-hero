@@ -51,7 +51,7 @@ jobs:
       - name: create comment with github API
         run: |
           gh api -X POST \
-            https://api.github.com/repo/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            https://api.github.com/repo/${{ REPOSITORY }}/issues/${{ ISSUE_NUMBER }}/comments \
             -f body ='
             comment but from the API call not action1
             '
