@@ -1,0 +1,30 @@
+name: checkout multi-repos
+
+on:
+  workflow_dispatch:
+    
+defaults:
+  run:
+   shell: bash
+
+
+jobs:
+  checkout_multi_repo_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout multi-repo-test
+        uses: actions/checkout@v3
+        with:
+          repository: bruce1237/multi-repo-test
+          path: ./multi-repo-test
+
+      - name: checkout multi-repo 
+        uses: actions/checkout@v3
+        with:
+          repository: bruce1237/multi-repo
+          path: ./multi-repo
+    
+      - name: check files
+        run: |
+          ls -lah
+         
