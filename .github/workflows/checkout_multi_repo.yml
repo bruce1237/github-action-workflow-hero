@@ -28,4 +28,6 @@ jobs:
       - name: check files
         run: |
           ls -lah
+          php ./multi-repo-test/test1.php
+          php ./multi-repo/multi.php
          
