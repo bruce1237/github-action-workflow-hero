@@ -24,6 +24,7 @@ jobs:
           repository: bruce1237/multi-repo
           path: ./multi-repo
           ref: master
+          token: ${{ secrets.GH_PAT }}
     
       - name: check files
         run: |
