@@ -24,5 +24,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           file: ./mine/abc.txt
+
+      - name: output content 
+        run: cat ./mine/abc.txt
           
    
