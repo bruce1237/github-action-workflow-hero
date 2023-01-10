@@ -1,0 +1,15 @@
+name: using env variable
+on: workflow_dispatch
+
+jobs:
+  using-env-var:
+   runs-on: ubuntu-latest
+   steps:
+     - name: set value
+       run: |
+         echo "var_name=var_value" >> $GITHUB_ENV
+     - name: get value
+       run: |
+         echo ${{ env.var_name }}
+
+      
