@@ -1,0 +1,10 @@
+name: test hashFiles
+on: [workflow_dispatch]
+
+jobs:
+  test-hashFiles-return-value:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v3
+     - run: |
+         echo "${{ hashFiles(./hashFilesTest/*.yml) }}"

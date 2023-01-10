@@ -48,7 +48,43 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 ```    
 
 5. install terraform
-
+```bash
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
     https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
     tee /etc/apt/sources.list.d/hashicorp.list
+```
+6. add the public key local/variables.tfvars.example and rename to variables.tfvars
+
+7. `terraform init`
+
+8. `terraform validate` to validate the configures for terraform
+
+9. validate the variable file `terraform plan --var-file=variables.tfvars` to run this command, you need to set up aws access key, please follow: `to use aws-cli` and `get aws access key ID` section. `terraform plan` command will reveal what terraform plan going to create/modify/destory....
+10. using `terraform apply --var-file=variables.tfvars` to execute the plan
+
+
+>Destroy: 
+>
+> `terraform destroy --var-file=variables.tfvars`
+
+WS Access Key ID [None]: AKIAYE7AL5WDZDRQ7WXK
+AWS Secret Access Key [None]: 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
+
+
+## to use aws-cli
+1. install python and pip
+2. `pip install awscli --force-reinstall --upgrade`
+
+## to configure aws
+1. run command `aws configure`
+2. for the `AWS Access Key ID [None]:` see below:
+
+## get aws access key ID:
+1. go to aws, then user/security credentials
+2. click `users`
+3. click `add users`
+4. put user name as `ferraform-cli` and tick `Access-key - programmatic access` in the select AWS credential type, then NEXT
+5. select or create proper permissions and add tag and create the user
+6. then you be able to get access key and secret access key 
+
+
