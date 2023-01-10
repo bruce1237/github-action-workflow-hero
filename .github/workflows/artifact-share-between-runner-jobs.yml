@@ -1,0 +1,28 @@
+name: share between jobs/runner using artifact
+on: workflow_dispatch
+
+jobs:
+  upload-to-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: generate file
+        runs: ls -lah >> abc.txt
+
+      - name: upload to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          file: abc.txt
+          path: ./mine
+
+  get-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          file: ./mine/abc.txt
+          
+   
