@@ -14,8 +14,8 @@ jobs:
       - name: upload to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: abc.txt
-          path: ./mine
+          name: abc
+          path: ./mine/abc.txt
 
   get-artifact:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v3
         with:
-          name: ./mine/abc.txt
+          name: abc
 
       - name: output content 
         run: cat ./mine/abc.txt
