@@ -5,5 +5,5 @@ runs:
   using: "composite"
   steps:
     - name: convert the reponame to upper, then put into git.env repo variable
-      run: echo "repo=${{GITHUB_REPOSITORY,^^}" >> $GITHUB_ENV
+      run: echo "repo=${GITHUB_REPOSITORY,^^}" >> $GITHUB_ENV
       shell: bash
