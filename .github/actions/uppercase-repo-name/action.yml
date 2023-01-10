@@ -1,0 +1,9 @@
+name: 'repo name in upper case'
+description: 'change the repo name owner/reponame into uppercase'
+
+runs:
+  using: "composite"
+  steps:
+    - name: convert the reponame to upper, then put into git.env repo variable
+      run: echo "repo=${{GITHUB_REPOSITORY,^^}" >> $GITHUB_ENV
+      shell: bash

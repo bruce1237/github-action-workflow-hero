@@ -1,0 +1,14 @@
+name: using composite action
+on: workflow_dispatch
+
+jobs:
+  getRepo:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v3
+       
+     - name: run the composite action
+       uses: ./.github/action/uppercase-repo-name
+
+     - name: get repo name
+       run: echo ${{ env.repo }} 
