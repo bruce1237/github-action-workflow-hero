@@ -9,12 +9,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: generate file
-        run: ls -lah >> abc.txt
+        run: ls -lah >> abcd.txt
 
       - name: upload to artifact
         uses: actions/upload-artifact@v3
         with:
           name: abcd.txt
+          path: .
 
 
   get-artifact:
@@ -24,6 +25,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: abcd.txt
+          path: .
 
 
       - name: output content 
