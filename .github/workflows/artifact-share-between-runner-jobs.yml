@@ -17,8 +17,8 @@ jobs:
       - name: upload to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: abcd.txt
-          path: .
+          name: my-artifact
+          path: ./abcd.txt
 
 
   get-artifact:
@@ -27,8 +27,8 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v3
         with:
-          name: abcd.txt
-          path: .
+          name: my-artifact
+          # path: .
 
 
       - name: output content 
