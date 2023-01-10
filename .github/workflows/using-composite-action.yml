@@ -8,7 +8,7 @@ jobs:
      - uses: actions/checkout@v3
        
      - name: run the composite action
-       uses: ./.github/action/uppercase-repo-name
+       uses: ./.github/actions/uppercase-repo-name
 
      - name: get repo name
        run: echo ${{ env.repo }} 
