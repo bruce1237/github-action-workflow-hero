@@ -14,7 +14,7 @@ jobs:
       - name: upload to artifact
         uses: actions/upload-artifact@v3
         with:
-          name: abc
+          name: abcd
           path: ./mine/abc.txt
 
   get-artifact:
@@ -23,7 +23,8 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v3
         with:
-          name: abc
+          name: abcd
+          path: ./mine/abc.txt
 
       - name: output content 
         run: cat ./mine/abc.txt
