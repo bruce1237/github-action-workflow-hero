@@ -62,6 +62,7 @@ jobs:
         - name: remove package
           uses: actions/delete-package-versions@v4
           with:
-            package-name: ${{ github.repository }}:${{ github.ref_name }}
+            package-name: ${{ github.repository }}
             package-type: 'container'
+            package-version-ids: ${{ github.ref_name }}
 
