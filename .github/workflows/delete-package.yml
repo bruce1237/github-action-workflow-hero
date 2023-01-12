@@ -1,4 +1,4 @@
-name: artifact-upload-docker-image-copy
+name: remove package
 on:
   push:
     branches:
