@@ -72,7 +72,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 > `terraform destroy --var-file=variables.tfvars`
 
 WS Access Key ID [None]: AKIAYE7AL5WDZDRQ7WXK
-AWS Secret Access Key [None]: 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
+AWS Secret Access Key [None]: *****
 
 
 ## to use aws-cli
