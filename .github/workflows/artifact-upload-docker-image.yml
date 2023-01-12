@@ -17,7 +17,7 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
 
      - name: build image
-       run: docker build -t my-test-image .
+       run: docker build -t ghcr.io/${{ github.repository }} .
      
      - name: check if the image exist
        run: docker push ghcr.io/${{ github.repository }}
