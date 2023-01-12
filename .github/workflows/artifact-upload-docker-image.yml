@@ -20,12 +20,8 @@ jobs:
        run: docker build -t my-test-image .
      
      - name: check if the image exist
-       run: docker pull my-test-image
+       run: docker push my-test-image
 
      - name: check image
        run: docker images
     
-    #  - name: upload image to artifact
-    #    uses: actions/upload-artiFacts@v3
-    #    with:
-        
