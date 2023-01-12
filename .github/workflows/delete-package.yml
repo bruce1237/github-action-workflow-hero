@@ -9,12 +9,17 @@ jobs:
   remove-image:
     runs-on: ubuntu-latest
     steps:
+      - name: login to github container registry
+        uses: docker/login-action@v2
+        with: 
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: remove package
         uses: actions/delete-package-versions@v4
         with:
-          owner: 'github'
-          package-name: github-action-workflow-hero #${{ github.repository }}
+          package-name: ${{ github.repository}}:${{ github.ref_name }}
           package-type: 'container'
-          package-version-ids: '965fbcae990b0467ed5657caceaec165018ef44a4d2d46c7cdea80a9dff0d1ea'
-
+          
 
