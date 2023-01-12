@@ -1,0 +1,31 @@
+name: artifact-upload-docker-image
+on:
+  workflow_dispatch:
+    
+jobs:
+  build-upload-image:
+   runs-on: ubuntu-latest
+   steps:
+     - name: checkout
+       uses: actions/checkout@v3
+
+     - name: login to github container registry
+       uses: docker/login-action@v2
+       with: 
+         registry: ghcr.io
+         username: ${{ github.actor }}
+         password: ${{ secrets.GITHUB_TOKEN }}
+
+     - name: build image
+       run: docker build -t my-test-image .
+     
+     - name: check if the image exist
+       run: docker pull my-test-image
+
+     - name: check image
+       run: docker images
+    
+    #  - name: upload image to artifact
+    #    uses: actions/upload-artiFacts@v3
+    #    with:
+        
