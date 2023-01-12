@@ -1,0 +1,26 @@
+name: artifact-upload-docker-image-copy
+on:
+  workflow_dispatch:
+    
+jobs:
+   remove-image:
+    runs-on: ubuntu-latest
+    needs: [build-upload-image,pull-image]
+    steps:
+      # - name: login to github container registry
+      #   uses: docker/login-action@v2
+      #   with: 
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: remove image
+      #   run: docker image rm ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+      
+        - name: remove package
+          uses: actions/delete-package-versions@v4
+          with:
+            package-name: ${{ github.repository }}
+            package-type: 'container'
+
+
