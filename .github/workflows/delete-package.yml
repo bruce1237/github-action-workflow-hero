@@ -19,7 +19,7 @@ jobs:
       - name: remove package
         uses: actions/delete-package-versions@v4
         with:
-          owner: ${{ GITHUB_REPOSITORY_OWNER }}
+          owner: ${{ github.actor }}
           package-name: ${{ github.repository}}:${{ github.ref_name }}
           package-type: 'container'
           
