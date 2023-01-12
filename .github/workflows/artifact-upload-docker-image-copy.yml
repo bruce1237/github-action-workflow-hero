@@ -17,10 +17,10 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
 
      - name: build image
-       run: docker build -t ghcr.io/test .
+       run: docker build -t ghcr.io/${{ github.repository }} .
      
      - name: push image
-       run: docker push ghcr.io/test
+       run: docker push ghcr.io/${{ github.repository }}
 
      - name: check image
        run: docker images
@@ -40,7 +40,7 @@ jobs:
         run: docker images
 
       - name: pull image
-        run: docker pull ghcr.io/test
+        run: docker pull ghcr.io/${{ github.repository }}
 
       - name: check image after pull
         run: docker images
