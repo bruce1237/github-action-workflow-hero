@@ -5,3 +5,21 @@ on:
 jobs:
   get-package-version-id:
    runs-on: ubuntu-latest
+   steps:
+      
+      - name: dash branch name
+        uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
+
+      - name: get package version id
+        uses: bruce1237/github-workflow-center/.github/actions/package-version-id@main
+
+      - name: remove package
+        if: env.package_version_id 
+        uses: actions/delete-package-version@v4
+        with:
+          package-name: ${{ github.event.repository.name }}
+          package-type: 'container'
+          package-version-ids: ${{ env.package_version_id }}
+
+
+      
