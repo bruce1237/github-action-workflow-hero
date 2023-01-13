@@ -9,13 +9,19 @@ jobs:
       
       - name: dash branch name
         uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
+        with:
+          branch-name: ${{ github.event.ref }}
+      
+      - name: dash branch name without default
+        uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
+        
 
       - name: get package version id
         uses: bruce1237/github-workflow-center/.github/actions/package-version-id@main
 
       - name: check package version id
         run: echo ${{ env.package_version_id }}
-        
+
       - name: remove package
         if: env.package_version_id 
         uses: actions/delete-package-versions@v4
