@@ -15,7 +15,7 @@ jobs:
 
       - name: remove package
         if: env.package_version_id 
-        uses: actions/delete-package-version@v4
+        uses: actions/delete-package-versions@v4
         with:
           package-name: ${{ github.event.repository.name }}
           package-type: 'container'
