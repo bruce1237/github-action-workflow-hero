@@ -3,9 +3,9 @@ on:
   delete:
    
 jobs:
-  get-package-version-id:
-   runs-on: ubuntu-latest
-   steps:
+  remove-package:
+    runs-on: ubuntu-latest
+    steps:
       
       - name: dash branch name
         uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
