@@ -10,7 +10,7 @@ jobs:
       - name: dash branch name
         uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
         with:
-          branch-name: ${{ github.event.ref }}
+          branch-name: z/x/c/v
 
       - name: check dash-name
         run: echo ${{ env.branch_name }}
