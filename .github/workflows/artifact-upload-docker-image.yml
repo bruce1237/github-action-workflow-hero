@@ -1,4 +1,4 @@
-name: artifact-upload-docker-image
+name: publish package
 on:
   workflow_dispatch:
   push:
