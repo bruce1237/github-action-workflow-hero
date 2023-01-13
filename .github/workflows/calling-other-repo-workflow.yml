@@ -1,0 +1,7 @@
+name: calling other repo workflow
+on:
+  workflow_dispatch:
+    
+jobs:
+  other-repo-workflow:
+    uses: bruce1237/github-workflow-center/.github/workflows/using-composite-actions.yml@main
