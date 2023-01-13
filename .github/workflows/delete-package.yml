@@ -13,6 +13,9 @@ jobs:
       - name: get package version id
         uses: bruce1237/github-workflow-center/.github/actions/package-version-id@main
 
+      - name: check package version id
+        run: echo ${{ env.package_version_id }}
+        
       - name: remove package
         if: env.package_version_id 
         uses: actions/delete-package-versions@v4
