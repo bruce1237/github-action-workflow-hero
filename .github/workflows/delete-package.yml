@@ -1,11 +1,17 @@
 name: remove package
 on:
   delete:
+  workflow_dispatch:
+    
    
 jobs:
   remove-package:
     runs-on: ubuntu-latest
     steps:
+      
+      - name: tyr
+        run:
+          $(echo ${GITHUB_REF#refs/heads/})
       
       - name: dash branch name
         uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
