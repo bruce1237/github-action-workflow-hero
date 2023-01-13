@@ -11,7 +11,7 @@ jobs:
       
       - name: tyr
         run:
-          $(echo ${GITHUB_REF#refs/heads/})
+          echo ${GITHUB_REF#refs/heads/}
       
       - name: dash branch name
         uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
