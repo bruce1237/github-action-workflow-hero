@@ -1,0 +1,54 @@
+name: publish package
+on:
+  workflow_dispatch:
+    
+jobs:
+  build-upload-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      
+      - name: dash branch name
+        uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
+
+      - name: login to github container registry
+        uses: docker/login-action@v2
+        with: 
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: build image
+        run: docker build docker_build_files/ -t ghcr.io/${{ github.repository }}:${{ env.branch_name }}
+      
+      - name: push image
+        run: docker push ghcr.io/${{ github.repository }}:${{ env.branch_name}}
+
+      - name: check image
+        run: docker images
+  
+  pull-image:
+    runs-on: ubuntu-latest
+    needs: [build-upload-image]
+    steps:
+      - name: dash branch name
+        uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
+
+      - name: login to github container registry
+        uses: docker/login-action@v2
+        with: 
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: check image before pull
+        run: docker images
+
+      - name: pull image
+        run: docker pull ghcr.io/${{ github.repository }}:${{ env.branch_name }}
+
+      - name: check image after pull
+        run: docker images
+        
+

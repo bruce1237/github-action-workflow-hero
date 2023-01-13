@@ -1,0 +1,7 @@
+name: remove package
+on:
+  delete:
+   
+jobs:
+  get-package-version-id:
+   runs-on: ubuntu-latest
