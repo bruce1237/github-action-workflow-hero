@@ -1,34 +1,16 @@
 name: remove package
 on:
   delete:
-  workflow_dispatch:
-    
    
 jobs:
   remove-package:
     runs-on: ubuntu-latest
     steps:
       
-      - name: tyr
-        run:
-          echo ${GITHUB_REF#refs/heads/}
-          
-      - name: ttt
-        run: echo ${GITHUB_REF_NAME}
-      
       - name: dash branch name
         uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
         with:
-          branch-name: z/x/c/v
-
-      - name: check dash-name
-        run: echo ${{ env.branch_name }}
-      
-      - name: dash branch name without default
-        uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
-
-      - name: check dash-name
-        run: echo ${{ env.branch_name }}  
+          branch-name: ${{ github.event.ref }}  
 
       - name: get package version id
         uses: bruce1237/github-workflow-center/.github/actions/package-version-id@main
