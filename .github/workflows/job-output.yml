@@ -24,6 +24,7 @@ jobs:
         run: echo ${{ needs.check-before.outputs.result}}
 
   calling-other-workflow:
+    needs: check-result
     if:  needs.check-before.outputs.result == 'false'
     uses: bruce1237/github-workflow-center/.github/workflows/using-composite-actions.yml@main
 
