@@ -7,3 +7,5 @@ runs:
     - name: convert the reponame to upper, then put into git.env repo variable
       run: echo "repo=${GITHUB_REPOSITORY,^^}" >> $GITHUB_ENV
       shell: bash
+
+    - uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main

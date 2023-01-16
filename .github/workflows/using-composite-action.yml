@@ -10,5 +10,9 @@ jobs:
      - name: run the composite action
        uses: ./.github/actions/uppercase-repo-name
 
+     - name: check env-branch-name value
+       uses: echo ${{ env.branch_name }}
+
      - name: get repo name
-       run: echo ${{ env.repo }} 
+       run: echo ${{ env.repo }}
+    
