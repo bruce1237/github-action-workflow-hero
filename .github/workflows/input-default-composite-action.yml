@@ -1,13 +1,10 @@
 name: using composite action with input
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - "main"
     
 jobs:
   call-dash-name:
    runs-on: ubuntu-latest
    steps:
      - name: call dash-name
-       uses: bruce1237/github-workflow-center/.github/actions/dash-name-name@main
+       uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
