@@ -9,6 +9,9 @@ jobs:
        
      - name: check before
        run: echo ${{ env.branch_name }}
+
+     - name: set env-ref-name
+       run: echo "ref_name='b/1/a" >> $GITHUB_ENV
        
      - name: run the composite action
        uses: ./.github/actions/uppercase-repo-name
