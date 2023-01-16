@@ -1,0 +1,26 @@
+name: check job output
+on:
+  workflow_dispatch:
+    
+jobs:
+  check-before:
+    runs-on: ubuntu-latest
+    outputs:
+      check_result: ${{ steps.check_before.outputs.result }}
+    steps:
+      - name: do the check
+        id: do_check
+        run: |
+          echo "result=false" >> $GITHUB_OUTPUT
+
+  check-result:
+    runs-on: ubuntu-latest
+    needs: check-before
+    steps:
+      - name: what is the output value
+        run: echo ${{ needs.check-before.outputs.result}}
+
+  calling-other-workflow:
+    if:  needs.check-before.outputs.result == 'false'
+    uses: bruce1237/github-workflow-center/.github/workflows/using-composite-actions.yml@main
+
