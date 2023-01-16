@@ -21,10 +21,10 @@ jobs:
     needs: check-before
     steps:
       - name: what is the output value
-        run: echo ${{ needs.check-before.outputs.result}}
+        run: echo ${{ needs.check-before.outputs.check_result}}
 
   calling-other-workflow:
     needs: check-result
-    if:  needs.check-before.outputs.result == 'false'
+    if:  needs.check-before.outputs.check_result == 'false'
     uses: bruce1237/github-workflow-center/.github/workflows/using-composite-actions.yml@main
 
