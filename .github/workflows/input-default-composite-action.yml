@@ -1,6 +1,9 @@
 name: using composite action with input
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "main"
     
 jobs:
   call-dash-name:
