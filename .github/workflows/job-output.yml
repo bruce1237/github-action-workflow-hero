@@ -25,6 +25,6 @@ jobs:
 
   calling-other-workflow:
     needs: check-result
-    if:  needs.check-before.outputs.check_result == 'false'
+    if:  needs.check-before.outputs.check_result == 'true'
     uses: bruce1237/github-workflow-center/.github/workflows/using-composite-actions.yml@main
 
