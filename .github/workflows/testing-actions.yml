@@ -1,4 +1,4 @@
-name: using composite action with input
+name: testing-actions
 on:
   workflow_dispatch:
     
