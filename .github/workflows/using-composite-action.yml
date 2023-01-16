@@ -11,7 +11,7 @@ jobs:
        uses: ./.github/actions/uppercase-repo-name
 
      - name: check env-branch-name value
-       uses: echo ${{ env.branch_name }}
+       run: echo ${{ env.branch_name }}
 
      - name: get repo name
        run: echo ${{ env.repo }}
