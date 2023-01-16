@@ -9,7 +9,7 @@ jobs:
   check-before:
     runs-on: ubuntu-latest
     outputs:
-      check_result: ${{ steps.check_before.outputs.result }}
+      check_result: ${{ steps.do_check.outputs.result }}
     steps:
       - name: do the check
         id: do_check
