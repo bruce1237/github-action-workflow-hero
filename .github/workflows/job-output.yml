@@ -1,6 +1,9 @@
 name: check job output
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "main"
     
 jobs:
   check-before:
