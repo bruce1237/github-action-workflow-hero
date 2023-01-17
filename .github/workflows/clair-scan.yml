@@ -44,7 +44,7 @@ jobs:
         run: |
           touch clair-whitelist.yml
           # ./clair-scanner -r report.json -l result.log -w clair-whitelist.yml ghcr.io/${{ github.repository }}:${{ github.ref_name }}
-          ./clair-scanner ghcr.io/${{ github.repository }}:${{ github.ref_name }} -r report.json
+          ./clair-scanner ghcr.io/${{ github.repository }}:${{ github.ref_name }} >> report.json
 
       - name: check log file
         run: cat result.log
