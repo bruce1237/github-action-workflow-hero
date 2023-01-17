@@ -82,7 +82,7 @@ jobs:
           trap "scanner_docker_compose down > /dev/null 2>&1" int exit
 
           # reports=$(mktemp -d)
-          reports=/tmp
+          reports=/tmp/
 
           function scan() {
             local image="${1:?}"
@@ -109,9 +109,8 @@ jobs:
             
           fi
 
-          ls -lah /tmp
-          
-          cat /tmp/abc-json
+          ls -lah ${reports:?}
+          cat ${reports:?}/${report_file:?}
       
       - name: pull the image
         run: docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
