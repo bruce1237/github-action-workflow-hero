@@ -82,7 +82,7 @@ jobs:
           trap "scanner_docker_compose down > /dev/null 2>&1" int exit
 
           # reports=$(mktemp -d)
-          reports=/tmp/
+          reports=/tmp
 
           function scan() {
             local image="${1:?}"
