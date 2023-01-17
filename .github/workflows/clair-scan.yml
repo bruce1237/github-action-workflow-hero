@@ -39,5 +39,5 @@ jobs:
 
 
       - name: run scan
-        run: ./clair-scanner ${{ github.repository }}:${{ github.ref_name }}
+        run: ./clair-scanner ghcr.io/${{ github.repository }}:${{ github.ref_name }}
     
