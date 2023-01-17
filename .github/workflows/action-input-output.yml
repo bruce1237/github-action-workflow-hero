@@ -9,8 +9,8 @@ jobs:
       - name: check ref name
         run: |
           echo ${{ github.ref_name }}
-          echo ${{ GITHUB_REF_NAME }}
+          echo ${GITHUB_REF_NAME }
   action-in-out-put:
    uses: bruce1237/github-workflow-center/.github/workflows/input-output.yml@main
    with:
-    input_var: 'calling from hero'
+    input_var: ${{ github.ref_name }}
