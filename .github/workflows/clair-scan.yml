@@ -33,6 +33,11 @@ jobs:
       - name: check files
         run: ls -lah
 
+      - name: check images
+        run: |
+          docker ps
+          docker ps -a
+
       - name: run scan
-        run: ./clair-scanner ${{ github.repository }}:${{ env.branch_name }}
+        run: ./clair-scanner ${{ github.repository }}:${{ github.ref_name }}
     
