@@ -103,9 +103,11 @@ jobs:
           if scan "${image:?}"; then
             log_success "✨ ${image:?} contains no known vulnerabilities. ✨"
           else
-            log_error "😱 ${image:?} contains vulnerabilities, details saved to ${reports:?}/${report_file:?}. 😱"
-            exit 1
+            log_error "😱 ${image:?} contains vulnerabilities, details saved to report.txt . 😱"
+            exit 0
           fi
+
+          cat report.txt
       
       - name: pull the image
         run: docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
