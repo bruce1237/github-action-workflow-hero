@@ -16,6 +16,16 @@ jobs:
         uses: bruce1237/github-workflow-center/.github/actions/docker-login@main
         with:
           github_token: ${{ github.TOKEN }}
+
+      - name: try-1
+        run: |
+          echo $'
+              FROM amazonlinux:2
+              RUN curl -L \
+                  https://github.com/arminc/clair-scanner/releases/download/v12/clair-scanner_linux_amd64 \
+                  -o clair-scanner && \
+                  chmod +x ./clair-scanner
+            ' | docker build -t clair-scanner -
       
       - name: pull the image
         run: docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
