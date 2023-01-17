@@ -1,0 +1,7 @@
+name: action-input-output
+on:
+  workflow_dispatch:
+    
+jobs:
+  action-in-out-put:
+   uses: bruce1237/github-workflow-center/.github/workflows/action-input-output.yml@main
