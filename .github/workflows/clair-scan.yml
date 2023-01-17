@@ -27,7 +27,8 @@ jobs:
           log_error() { echo -e "\033[0m\033[1;91m${*}\033[0m"; }
           log_success() { echo -e "\033[0m\033[1;92m${*}\033[0m"; }
 
-          image=${1:-}
+          image=ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+
 
           if [[ -z "${image:-}" ]] || ! [[ "${image:-}" =~ : ]]; then
             log_error "must specify image:version to scan"
