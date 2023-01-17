@@ -35,8 +35,8 @@ jobs:
 
       - name: check images
         run: |
-          docker ps
-          docker ps -a
+          docker images
+
 
       - name: run scan
         run: ./clair-scanner ${{ github.repository }}:${{ github.ref_name }}
