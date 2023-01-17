@@ -31,7 +31,9 @@ jobs:
           chmod +x clair-scanner
       
       - name: check files
-        run: ls -lah
+        run: |
+          ls -lah
+          ls -lah /
 
       - name: check images
         run: |
