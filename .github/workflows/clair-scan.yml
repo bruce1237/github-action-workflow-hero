@@ -1,0 +1,31 @@
+name: run clair-scan
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - ".github/**"
+    
+  workflow_dispatch:
+   
+jobs:
+  docker-login:
+   runs-on: ubuntu-latest
+   steps:
+      - name: docker login
+        uses: bruce1237/github-workflow-center/.github/actions/docker-login@main
+      
+      - name: pull the image
+        run: docker pull ghcr.io/${{ github.repository }}:${{ env.branch_name }}
+
+      - name: checkout clair
+        uses: actions/checkout@v3
+        with:
+          repository: arminc/clair-scanner
+      
+      - name: copy file
+        run: |
+          cp ./example-run.sh clair-scanner
+          chmod +x clair-scanner
+          ./clair-scanner ${{ github.repository }}:${{ env.branch_name }}
+    
