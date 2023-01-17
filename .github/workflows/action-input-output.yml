@@ -5,3 +5,5 @@ on:
 jobs:
   action-in-out-put:
    uses: bruce1237/github-workflow-center/.github/workflows/input-output.yml@main
+   with:
+    input_var: ${{ github.ref_name }}
