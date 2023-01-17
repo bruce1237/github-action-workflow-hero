@@ -109,7 +109,9 @@ jobs:
             
           fi
 
-          cat /tmp/abc.json
+          ls -lah /tmp
+          
+          cat /tmp/abc-json
       
       - name: pull the image
         run: docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
