@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
    
 jobs:
-  docker-login:
+  clair-scan:
    runs-on: ubuntu-latest
    steps:
       - name: docker login
@@ -18,7 +18,7 @@ jobs:
           github_token: ${{ github.TOKEN }}
       
       - name: pull the image
-        run: docker pull ghcr.io/${{ github.repository }}:${{ env.branch_name }}
+        run: docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
 
       - name: checkout clair
         uses: actions/checkout@v3
