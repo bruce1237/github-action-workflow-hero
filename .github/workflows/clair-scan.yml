@@ -77,13 +77,12 @@ jobs:
             scanner_docker_compose up -d
           fi
 
-          report_file=$(echo "abc.json" | sed  's/\W/-/g')
+          report_file=$(echo "${image:?}.json" | sed  's/\W/-/g')
 
           trap "scanner_docker_compose down > /dev/null 2>&1" int exit
 
-          # reports=$(mktemp -d)
-          reports=/tmp/
-
+          reports=$(mktemp -d)
+          
           function scan() {
             local image="${1:?}"
             docker run \
