@@ -77,11 +77,12 @@ jobs:
             scanner_docker_compose up -d
           fi
 
-          report_file=$(echo "${image:?}.json" | sed  's/\W/-/g')
+          report_file=$(echo "abc.json" | sed  's/\W/-/g')
 
           trap "scanner_docker_compose down > /dev/null 2>&1" int exit
 
-          reports=$(mktemp -d)
+          # reports=$(mktemp -d)
+          reports=/tmp/
 
           function scan() {
             local image="${1:?}"
@@ -103,11 +104,12 @@ jobs:
           if scan "${image:?}"; then
             log_success "✨ ${image:?} contains no known vulnerabilities. ✨"
           else
-            log_error "😱 ${image:?} contains vulnerabilities, details saved to report.txt . 😱"
-            exit 0
+            log_error "😱 ${image:?} contains vulnerabilities, details saved to ${reports:?}/${report_file:?}. 😱"
+            
+            
           fi
 
-          cat report.txt
+          cat /tmp/abc.json
       
       - name: pull the image
         run: docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
