@@ -19,10 +19,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-          
-  clair-scan:
-    uses: bruce1237/github-workflow-center/.github/workflows/clair-scan.yml@main
-    with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
-      image_name: ${{ github.repository }}
-      image_tag: ${{ github.ref_name }}
+
+  # clair-scan:
+  #   uses: bruce1237/github-workflow-center/.github/workflows/clair-scan.yml@main
+  #   with:
+  #     github_token: ${{ secrets.GITHUB_TOKEN }}
+  #     image_name: ${{ github.repository }}
+  #     image_tag: ${{ github.ref_name }}
