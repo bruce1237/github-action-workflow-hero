@@ -5,3 +5,5 @@ on:
 jobs:
   other-repo-workflow:
     uses: bruce1237/github-workflow-center/.github/workflows/using-composite-actions.yml@main
+    with:
+     pass: ${{ secrets.GITHUB_TOKEN }}
