@@ -10,6 +10,10 @@ on:
    
 jobs:
   clair-scan:
+    uses: bruce1237/github-work-center/.github/workflows/clair-scan.yml@main
+
+    
+  clair-scan-local:
    runs-on: ubuntu-latest
    steps:
       - name: docker login
