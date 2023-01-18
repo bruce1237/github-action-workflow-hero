@@ -9,6 +9,17 @@ on:
   workflow_dispatch:
    
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+          
   clair-scan:
     uses: bruce1237/github-workflow-center/.github/workflows/clair-scan.yml@main
     with:
