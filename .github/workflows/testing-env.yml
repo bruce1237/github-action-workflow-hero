@@ -1,0 +1,9 @@
+name: testing env settings
+on:
+  workflow_dispatch:
+    
+jobs:
+  test-env-deploy:
+   uses: bruce1237/github-workflow-center/.github/workflows/env-test.yml@main
+   with:
+    env_name: 'gh-package'
