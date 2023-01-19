@@ -13,14 +13,14 @@ jobs:
         run: docker image ls -a
       
       - name: set up docker buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: ./docker_build_files/Dockerfile
-          tags: user/myimage:latest
+          tags: myimage:v.1.0.1
           outputs: type=docker,dest=/tmp/myimage.tar
 
       - name: upload artifact
@@ -40,10 +40,10 @@ jobs:
         run: docker image ls -a
 
       - name: set up docker buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: myimage
           path: /tmp
