@@ -16,7 +16,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./docker_build_files
+          file: ./docker_build_files/Dockerfile
           outputs: type=docker,dest=/tmp/myimage.tar
 
       - name: upload artifact
