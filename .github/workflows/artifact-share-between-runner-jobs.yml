@@ -5,6 +5,15 @@ jobs:
   upload-to-artifact:
     runs-on: ubuntu-latest
     steps:
+      - name: generate file
+        id: if-test
+        run: ls -lah >> ./abcd.txt
+      
+      - name: if not
+        if: steps.if-test.output.abc == null
+        run: echo 'NOT FOUND'
+
+        
       - name: checkout
         uses: actions/checkout@v3
 
