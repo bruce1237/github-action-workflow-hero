@@ -20,7 +20,7 @@ jobs:
         with:
           context: .
           file: ./docker_build_files/Dockerfile
-          tags: myimage:latest
+          tags: user/myimage:latest
           outputs: type=docker,dest=/tmp/myimage.tar
 
       - name: upload artifact
@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: check image
         run: docker image ls -a
-        
+
       - name: set up docker buildx
         uses: docker/setup-buildx-action@v2
 
