@@ -20,6 +20,7 @@ jobs:
         with:
           context: .
           file: ./docker_build_files/Dockerfile
+          tags: myimage:v1.0
           outputs: type=docker,dest=/tmp/myimage.tar
 
       - name: upload artifact
