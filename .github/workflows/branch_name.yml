@@ -1,4 +1,4 @@
-name: action-input-output
+name: branch_name_var
 on:
   workflow_dispatch:
     inputs:
