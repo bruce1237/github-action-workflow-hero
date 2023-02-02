@@ -9,6 +9,6 @@ on:
     
 jobs:
   action-in-out-put:
-   uses: bruce1237/github-workflow-center/.github/workflows/branch_name.yml@$main
+   uses: bruce1237/github-workflow-center/.github/workflows/branch_name.yml@main
    with:
     branch_name: ${{ inputs.tags }}
