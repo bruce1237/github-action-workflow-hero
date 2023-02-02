@@ -19,4 +19,4 @@ jobs:
    uses: bruce1237/github-workflow-center/.github/workflows/input-output.yml@${{inputs.branch_name}}
    with:
     input_var: ${{ github.ref_name }}
-    branch_name: ${{ inputs.branch_name }}
+    branch_name: ${{inputs.branch_name}}
