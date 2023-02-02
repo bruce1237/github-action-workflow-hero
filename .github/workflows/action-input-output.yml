@@ -1,15 +1,16 @@
 name: action-input-output
 on:
   workflow_dispatch:
-    inputs:
-      tags:
-        description: 'Test scenario tags'
-        required: true 
-        type: string
     
 jobs:
+  check-ref:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check ref name
+        run: |
+          echo ${{ github.ref_name }}
+          echo ${GITHUB_REF_NAME }
   action-in-out-put:
-   uses: bruce1237/github-workflow-center/.github/workflows/branch_name.yml@myTest
+   uses: bruce1237/github-workflow-center/.github/workflows/input-output.yml@main
    with:
     input_var: ${{ github.ref_name }}
-    branch_name: ${{inputs.tags}}
