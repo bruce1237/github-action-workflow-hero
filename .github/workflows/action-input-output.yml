@@ -16,7 +16,7 @@ jobs:
           echo ${{ github.ref_name }}
           echo ${GITHUB_REF_NAME }
   action-in-out-put:
-   uses: bruce1237/github-workflow-center/.github/workflows/input-output.yml@myTest
+   uses: bruce1237/github-workflow-center/.github/workflows/input-output.yml@main
    with:
     input_var: ${{ github.ref_name }}
     branch_name: ${{inputs.branch_name}}
