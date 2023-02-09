@@ -23,6 +23,8 @@ jobs:
 
   testJobEnv:
     runs-on: ubuntu-latest
+    outputs:
+      my_phone: ${{ steps.setSec.outputs.my_phone }}
     steps:
       - name: using step env
         env:
@@ -30,6 +32,11 @@ jobs:
           my_age: 40
         run: |
           echo $my_name is $my_age
+      
+      - name: set secret to outputs
+        id: setSec
+        run:
+          echo my_phone=${{ secrets.MY_SE }} >> $GITHUB_OUTPUT
 
       - name: check composite action
         uses: bruce1237/github-action-workflow-hero/.github/actions/env_test@main
@@ -38,8 +45,9 @@ jobs:
           my_age: ${{ env.last_name }}
   
   compositeEnvTest:
+    needs: testJobEnv
     uses: bruce1237/github-workflow-center/.github/workflows/env_test.yml@main
     with:
-      my_name: ${{ secrets.MY_SE }}
+      my_name: ${{ needs.testJobEnv.outputs.my_phone }}
       my_age: abc
    
