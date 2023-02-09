@@ -10,4 +10,4 @@ runs:
 
     - name: using dash-name
       if: env.ref_name == ''
-      uses: bruce1237/github-workflow-center/.github/actions/dash-branch-name@main
+      uses: bruce1237/github-workflow-hero/.github/actions/env_test@main

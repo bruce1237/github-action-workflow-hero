@@ -1,0 +1,18 @@
+name: test env
+description: testing is composite action can receive env var
+
+inputs:
+  my_name:
+    description: name
+    required: true
+  my_age:
+    description: age
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: check inputs
+      shell: bash
+      run: |
+        echo ${{ inputs.my_name }} is ${{ inputs.my_age }}

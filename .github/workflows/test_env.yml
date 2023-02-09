@@ -15,6 +15,12 @@ jobs:
       - name: using env var
         run: echo ${{ env.first_name }}_${{ env.last_name }} is my name
 
+      - name: check composite action
+        uses: bruce1237/github-workflow-hero/.github/actions/env_test@main
+        with:
+          my_name: ${{ env.first_name }}
+          my_age: ${{ env.last_name }}
+
   testJobEnv:
     runs-on: ubuntu-latest
     steps:
@@ -24,4 +30,5 @@ jobs:
           my_age: 40
         run: |
           echo $my_name is $my_age
+      
       
