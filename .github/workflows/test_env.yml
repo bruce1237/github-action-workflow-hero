@@ -36,7 +36,7 @@ jobs:
       - name: set secret to outputs
         id: setSec
         run:
-          echo my_phone=${{ secrets.MY_SE }} >> $GITHUB_OUTPUT
+          echo "my_phone=${{ secrets.MY_SE }}" >> $GITHUB_OUTPUT
 
       - name: check composite action
         uses: bruce1237/github-action-workflow-hero/.github/actions/env_test@main
