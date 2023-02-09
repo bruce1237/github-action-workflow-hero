@@ -34,7 +34,7 @@ jobs:
       - name: check composite action
         uses: bruce1237/github-action-workflow-hero/.github/actions/env_test@main
         env:
-          my_name: ${{ env.first_name }}
+          my_name: ${{ secrets.MY_SE }}
           my_age: ${{ env.last_name }}
   
   compositeEnvTest:
