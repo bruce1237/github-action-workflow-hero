@@ -26,7 +26,7 @@ jobs:
     outputs:
       my_phone: ${{ steps.setSec.outputs.my_phone }}
     steps:
-      - name: using step env
+      - name: using step env vars.MY_WC si from repos var
         env:
           my_name: bo_sun
           my_age: 40
