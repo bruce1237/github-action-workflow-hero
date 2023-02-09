@@ -16,3 +16,4 @@ runs:
       shell: bash
       run: |
         echo ${{ inputs.my_name }} is not ${{ inputs.my_age }}
+        echo $my_name lalala $my_age
