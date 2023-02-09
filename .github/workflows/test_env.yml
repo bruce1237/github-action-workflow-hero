@@ -16,7 +16,7 @@ jobs:
         run: echo ${{ env.first_name }}_${{ env.last_name }} is my name
 
       - name: check composite action
-        uses: bruce1237/github-workflow-hero/.github/actions/env_test@main
+        uses: bruce1237/github-action-workflow-hero/.github/actions/env_test@main
         with:
           my_name: ${{ env.first_name }}
           my_age: ${{ env.last_name }}
