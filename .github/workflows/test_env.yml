@@ -37,9 +37,9 @@ jobs:
           my_name: ${{ secrets.MY_SE }}
           my_age: ${{ env.last_name }}
   
-  compositeEnvTest:
-    uses: bruce1237/github-workflow-center/.github/workflows/env_test.yml@main
-    with:
-      my_name: ${{ env.first_name }}
-      my_age: ${{ env.last_name }}
+  # compositeEnvTest:
+  #   uses: bruce1237/github-workflow-center/.github/workflows/env_test.yml@main
+  #   with:
+  #     my_name: ${{ env.first_name }}
+  #     my_age: ${{ env.last_name }}
    
