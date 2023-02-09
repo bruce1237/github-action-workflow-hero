@@ -30,5 +30,9 @@ jobs:
           my_age: 40
         run: |
           echo $my_name is $my_age
-      
-      
+
+      - name: check composite action
+        uses: bruce1237/github-action-workflow-hero/.github/actions/env_test@main
+        env:
+          my_name: ${{ env.first_name }}
+          my_age: ${{ env.last_name }}

@@ -15,4 +15,4 @@ runs:
     - name: check inputs
       shell: bash
       run: |
-        echo ${{ inputs.my_name }} is ${{ inputs.my_age }}
+        echo ${{ inputs.my_name }} is not ${{ inputs.my_age }}
