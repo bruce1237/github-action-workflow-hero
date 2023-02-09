@@ -48,6 +48,6 @@ jobs:
     needs: testJobEnv
     uses: bruce1237/github-workflow-center/.github/workflows/env_test.yml@main
     with:
-      my_name: ${{ needs.testJobEnv.outputs.my_phone }}
+      my_name: ${{ vars.MY_WC }}
       my_age: abc
    
