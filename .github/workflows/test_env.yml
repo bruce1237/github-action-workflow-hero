@@ -31,7 +31,7 @@ jobs:
           my_name: bo_sun
           my_age: 40
         run: |
-          echo $my_name is $my_age $MY_WC
+          echo $my_name is $my_age ${{ vars.MY_WC }}
       
       - name: set secret to outputs
         id: setSec
