@@ -1,0 +1,27 @@
+name: test_env_var
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+env:
+  first_name: bo
+  last_name: sun
+
+jobs:
+  onlyTestEnv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: using env var
+        run: echo ${{ env.first_name }}_${{ env.last_name }} is my name
+
+  testJobEnv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: using step env
+        env:
+          my_name: bo_sun
+          my_age: 40
+        run: |
+          echo $my_name is $my_age
+      
