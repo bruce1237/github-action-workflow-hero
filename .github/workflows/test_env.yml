@@ -50,4 +50,6 @@ jobs:
     with:
       my_name: ${{ vars.MY_WC }}
       my_age: "${{ secrets.MY_SE }}"
+    secrets: inherit #will all the callee to access to this repo's secrets
+      abc: ${{ secrets.MY_SE }} #this is how to pass secret to reuse workflow
    
