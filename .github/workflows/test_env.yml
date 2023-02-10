@@ -49,5 +49,5 @@ jobs:
     uses: bruce1237/github-workflow-center/.github/workflows/env_test.yml@main
     with:
       my_name: ${{ vars.MY_WC }}
-      my_age: "abc"
+      my_age: "${{ secrets.MY_SE }}"
    
